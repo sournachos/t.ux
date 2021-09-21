@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { withDesign } from "storybook-addon-designs";
+import Draggable, {DraggableCore} from 'react-draggable';
 import DropArrow from '../../../../images/DragNDrop/DropArrow.svg'
-import { DnDActivity, DnDBoxOne, DnDBoxTwo, DnDItemBox, DnDImg, DnDPlaceholdText } from "./TShape"
+import { DnDActivity, DnDTitle, DnDBoxOne, DnDBoxTwo, DnDItemBox, DnDImg, DnDPlaceholdText, DnDItemBoxTitle } from "./TShape"
 
 export default {
   title: "Drag&Drop",
@@ -9,6 +10,7 @@ export default {
 };
 
 export const TShapeDragnDrop = () => {
+
 
   const DnDItems = [
     'Logo on top left',
@@ -19,17 +21,24 @@ export const TShapeDragnDrop = () => {
 
 
 
+
   return (
     <DnDActivity>
 
-    <DnDItemBox/>
+    <DnDTitle>Match the term below with it's appropriate column</DnDTitle>
 
-    <DnDBoxOne titleLeft="User Control & Freedom">
+    <Draggable>
+      <DnDItemBox/>
+    </Draggable>
+
+    <DnDBoxOne>
+      <DnDItemBoxTitle>User Control & Freedom</DnDItemBoxTitle>
       <DnDImg src={DropArrow}/>
       <DnDPlaceholdText/>
     </DnDBoxOne>
 
-    <DnDBoxTwo titleRight="Consistency & Standards">
+    <DnDBoxTwo>
+      <DnDItemBoxTitle>Consistency & Standards</DnDItemBoxTitle>
       <DnDImg src={DropArrow}/>
       <DnDPlaceholdText/>
     </DnDBoxTwo>
